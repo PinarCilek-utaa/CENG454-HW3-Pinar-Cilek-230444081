@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class IDamageable
+public interface IDamageable
 {
-    
+    void TakeDamage(float amount);
 }
