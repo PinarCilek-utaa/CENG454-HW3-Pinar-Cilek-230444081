@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IEnemyStrategy
+public interface IEnemyStrategy
 {
-    
+    void Move(Transform enemyTransform, Transform targetTransform, float speed);
 }
