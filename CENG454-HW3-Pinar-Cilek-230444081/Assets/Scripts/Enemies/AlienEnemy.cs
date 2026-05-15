@@ -1,27 +1,32 @@
 using UnityEngine;
-
 public class AlienEnemy : MonoBehaviour
 {
     private IEnemyStrategy currentStrategy;
-    public Transform coreTarget; //the position of Core
-    public float moveSpeed=3f;
-
+    public Transform coreTarget; 
+    public float moveSpeed = 3f;
+    public float stopDistance = 3f; 
     private void Start()
     {
-        currentStrategy=new DirectRushStrategy();
-        //this is initial strategy
+        currentStrategy = new DirectRushStrategy();
     }
     private void Update()
     {
-        //for every frame , apply strategy which you are use
-        if(currentStrategy !=null && coreTarget != null)
+        if(currentStrategy != null && coreTarget != null)
         {
-            currentStrategy.Move(this.transform,coreTarget,moveSpeed);
+            float distance = Vector3.Distance(transform.position, coreTarget.position);
+            if (distance > stopDistance)
+            {
+                Vector3 lookPosition = new Vector3(coreTarget.position.x, transform.position.y, coreTarget.position.z);
+                transform.LookAt(lookPosition);
+                currentStrategy.Move(this.transform, coreTarget, moveSpeed);
+            }
+            else 
+            {
+            }
         }
     }
     public void SetStrategy(IEnemyStrategy newStrategy)
     {
-        //even if we playing game, we can change enemy strategy at that time with this funciton
-        currentStrategy=newStrategy;
+        currentStrategy = newStrategy;
     }
 }
