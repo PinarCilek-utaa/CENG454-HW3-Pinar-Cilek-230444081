@@ -109,3 +109,4 @@ MonoBehaviour:
   moveSpeed: 3
   stopDistance: 3
   useZigZagStrategy: 0
+  groundOffset: 0
