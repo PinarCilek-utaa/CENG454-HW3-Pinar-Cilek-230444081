@@ -2,26 +2,14 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed=20f;
-    public float lifeTime=2f;
-    private float currentLifeTimer;
-
-    private void OnEnable()
+    private void OnCollisionEnter(Collision collision)
     {
-        //to reset the remaining time from the bullet's previous launch:
-        currentLifeTimer= lifeTime;
-    }
-    private void Update()
-    {
-        //to move forward projectile
-        transform.position +=transform.forward*speed*Time.deltaTime;
-        //decrease the  current life timer
-        currentLifeTimer -=Time.deltaTime;
-        //instead of destroying the expired bullet, send it back to the pool
-        if (currentLifeTimer <= 0f)
+        AlienEnemy hitAlien = collision.gameObject.GetComponent<AlienEnemy>();
+        
+        if (hitAlien != null)
         {
-            gameObject.SetActive(false);
+            Destroy(collision.gameObject);
         }
-
+        gameObject.SetActive(false);
     }
 }
