@@ -20,6 +20,6 @@ public class BaseWeapon : IWeapon
                 rb.AddForce(cameraTransform.forward * 40f, ForceMode.Impulse);
             }
         }
-        Debug.Log("BASE WEAPON FIRED! DAMAGE: " + GetDamage());
+        //Debug.Log("BASE WEAPON FIRED! DAMAGE: " + GetDamage());
     }
 }

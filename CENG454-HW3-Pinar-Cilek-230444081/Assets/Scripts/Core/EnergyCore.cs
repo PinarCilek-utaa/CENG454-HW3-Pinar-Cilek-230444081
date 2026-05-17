@@ -27,11 +27,11 @@ public class EnergyCore : MonoBehaviour,IDamageable
         //invoke : triggers the event (divide current health with max health and send a percentage value)
 
         if(currentHealth <= 0)
-        {
-            //İF current health decrease under or equal zero ,send event systems that  listens this ,about the core has destroyed
+        {   
+            //IF current health decrease under or equal zero ,send event systems that  listens this ,about the core has destroyed
             OnCoreDestroyed?.Invoke();
+            gameObject.SetActive(false); 
         }
-
     }
 
 }
