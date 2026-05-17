@@ -1,1 +1,2 @@
-Temp/ScriptUpdater/325267976/1482516271_PlayerController.cs => Assets/Scripts/Weapons/PlayerController.cs
+Temp/ScriptUpdater/325267976/269816846_BaseWeapon.cs => Assets/Scripts/Weapons/BaseWeapon.cs
+Temp/ScriptUpdater/325267976/163387267_DamageUpgradeDecorator.cs => Assets/Scripts/Weapons/DamageUpgradeDecorator.cs
